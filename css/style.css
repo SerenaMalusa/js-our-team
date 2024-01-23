@@ -1,0 +1,14 @@
+.team-member {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding: 0;
+    width: calc(100% / 4);
+    margin-right: 50px;
+}
+
+
+.team-member img {
+    border-radius:0 0 5px 5px;
+    margin-top: 2px;
+    width: 100%;
+}

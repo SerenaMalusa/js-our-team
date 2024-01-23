@@ -12,45 +12,79 @@ function findDeatils(team, container) {
         // per ogni elemento recupero il valore in una variabile
         let person = team[member];
 
+        // creo un nuovo elemento html .card
+        let card = document.createElement('div');
+        // gli assegno la classe team-member
+        card.classList.add('team-member');
+
+        // creo variabile che conterrà le stringhe da inserire nell'html
+        let cardChild = '';
+
         // creo un ciclo che vada dal primo all'ultimo argomento del oggetto
         for (let detailKey in person) {
 
             // recupero il valore della dell'argomento in una variabile
             let detailValue = person[`${detailKey}`];
             
-            // all'interno del ciclo precedente chiamo la funzione per stampare
-            printDeatils (container, detailKey, detailValue);
+            // se la chiave corrisponde alla stringa image
+            if (detailKey === 'image') {
+
+                // l'HTML di card dovrà essere diverso
+                cardChild += `
+                    <img src="./img/${detailValue}" alt="${detailValue}">
+                    `
+
+            } else if (detailKey === 'name') {
+
+                // l'HTML di card dovrà contenere gli elementi presi dall'oggetto
+                cardChild += `
+                <h5 class="card-title mt-3 ms-2">${detailValue}</h5> 
+                `
+
+            } else {
+
+                cardChild += `
+                <p class="card-text ms-2">${detailValue}</p>
+                `
+            }
 
         }
+
+        card.innerHTML = cardChild;
+
+        // li metto tutti nel container
+        container.appendChild(card);
         
     }
 
 }
 
 /**
- * funzione che stampa i dati in pagina
- * @param {object} container - elemento HTML in cui andranno stampati i dati
- * @param {string} key - chiave dell'argomento
- * @param {string} value - valore dell'argomento
- */
-function printDeatils(container, key, value) {
+//  * funzione che stampa i dati in pagina
+//  * @param {object} container - elemento HTML in cui andranno stampati i dati
+//  * @param {string} key - chiave dell'argomento
+//  * @param {string} value - valore dell'argomento
+//  */
+// function printDeatils(container, key, value) {
 
-    // creo un nuovo elemento html .card
-    let card = document.createElement('div');
+    
 
-    // l'HTML di card dovrà contenere gli elementi presi dall'oggetto
-    card.innerHTML = `
-    <p>${key}: ${value}</p>
-    `
-    // se la chiave corrisponde alla stringa image
-    if (key === 'image') {
+//     // l'HTML di card dovrà contenere gli elementi presi dall'oggetto
+//     let cardChild = `
+//         <p class="card-text mt-3 ms-2">${value}</p> 
+//         `
+//     // se la chiave corrisponde alla stringa image
+//     if (key === 'image') {
 
-        // l'HTML di card dovrà essere diverso
-        card.innerHTML = `<img src="./img/${value}" alt="${value}">`
+//         // l'HTML di card dovrà essere diverso
+//         cardChild = `
+//             <img src="./img/${value}" alt="${value}">
+//             `
 
-    } 
+//     } 
 
-    // li metto tutti nel container
-    container.appendChild(card);
+//     cardChild += cardChild;
 
-}
+//     return cardChild;
+
+// }
