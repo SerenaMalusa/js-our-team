@@ -26,11 +26,3 @@ organizzare i singoli membri in card/schede
 Ragioniamo come sempre a step.  
 Prima la logica in italiano e poi traduciamo in codice.
 `console.log()` è nostro amico.
-
-
-`<div class="team-member">         
-    <p class="card-title mt-3 ms-2">Nome Cognome</p> 
-    <p class="card-text ms-2">role: CEO</p>
-    <img src="./img/angela-caroll-chief-editor.jpg" alt="ciao">
-</div>
-`
