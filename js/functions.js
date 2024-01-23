@@ -37,11 +37,19 @@ function printDeatils(container, key, value) {
 
     // creo un nuovo elemento html .card
     let card = document.createElement('div');
+
     // l'HTML di card dovrà contenere gli elementi presi dall'oggetto
     card.innerHTML = `
     <p>${key}: ${value}</p>
     `
-    
+    // se la chiave corrisponde alla stringa image
+    if (key === 'image') {
+
+        // l'HTML di card dovrà essere diverso
+        card.innerHTML = `<img src="./img/${value}" alt="${value}">`
+
+    } 
+
     // li metto tutti nel container
     container.appendChild(card);
 
