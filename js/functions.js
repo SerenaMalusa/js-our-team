@@ -11,8 +11,9 @@ function printTeam (team, container) {
         // per ogni elemento recupero il valore in una variabile
         let person = team[member];
 
-        // creo la card invocando la funzione e la metto nel container
-        let card = createCard (person);
+        // creo la card, la riempio e la metto nel container
+        let card = createCard();
+        card.innerHTML = addCardContent(person);
         container.appendChild(card);
 
     }
@@ -22,17 +23,14 @@ function printTeam (team, container) {
 
 /**
  * funzione che prepara la singola card da inserire in pagina
- * @param {object} person - persona(oggetto) i cui dettagli devo inserire nella card
- * @returns card - la card pronta per essere inserita in pagina
+ * @returns card - la card vuota pronta da riempire e inserire in pagina
  */
-function createCard (person) {
+function createCard () {
 
     // creo la nuova card e le assegno la classe team-member
     let card = document.createElement('div');
     card.classList.add('team-member');
 
-    // invoco la funzione che mi crea il codice HTML direttamente dentro la card e la restituisco
-    card.innerHTML = addCardContent(person);
     return card;
 
 }
