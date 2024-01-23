@@ -1,3 +1,3 @@
 const container = document.querySelector('.container');
 
-printDeatils(container);
+findDeatils(team, container);
